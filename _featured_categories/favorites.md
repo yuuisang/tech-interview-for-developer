@@ -1,10 +1,10 @@
 ---
 layout: list
-title: Favorites
-slug: favorites
+title: 취미
+slug: 취미
 menu: true
 submenu: false
 order: 7
 description: >
-  개발, 일상 등 유용한 즐겨찾기 모음.
+  음악이나 게임 등 취미 관련
 ---
