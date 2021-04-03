@@ -6,5 +6,5 @@ menu: true
 submenu: false
 order: 7
 description: >
-  음악/게임
+  관심사들
 ---
