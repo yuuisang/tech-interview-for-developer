@@ -1,10 +1,10 @@
 ---
 layout: list
 title: 개발
-slug: 개발
+slug: dev
 menu: true
 submenu: true
 order: 3
 description: >
-  웹 개발 관련
+  개발 관련 정리
 ---

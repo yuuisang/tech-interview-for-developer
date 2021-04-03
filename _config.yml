@@ -51,7 +51,7 @@ disqus: True
 disqus_shortname: manong-x
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright: "&copy; 2019.04. by manong-x"
+copyright: "&copy; 2021.04. by manong-x"
 
 # Format of the permalinks
 permalink: pretty

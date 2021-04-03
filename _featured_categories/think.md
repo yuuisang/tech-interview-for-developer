@@ -1,10 +1,10 @@
 ---
 layout: list
 title: 기록
-slug: 기록
+slug: think
 menu: true
 submenu: false
 order: 1
 description: >
-  작성 시작
+  끄적끄적
 ---
