@@ -23,7 +23,7 @@ comments: true
 
 > NH증권
 
-- [깃허브랑 방식 동일](https://www.github.com/manong-x)
+- [나무](https://www.mynamuh.com/tx/main.html)
 
 <br>
 
@@ -33,7 +33,7 @@ comments: true
 
 > 업비트
 
-- [깃허브랑 방식 동일](https://www.github.com/manong-x)
+- [업비트](https://upbit.com/home)
 
 <br><br>
 
