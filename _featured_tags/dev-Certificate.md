@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: Certificate
+title: 자격증
 slug: certificate
 category: dev
 menu: false

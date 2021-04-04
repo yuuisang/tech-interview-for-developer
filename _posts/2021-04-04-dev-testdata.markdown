@@ -3,7 +3,7 @@ layout: post
 title: "2021 테스트 데이터"
 subtitle: "2021 Test Data"
 categories: dev
-tags:
+tags: java
 comments: true
 ---
 
