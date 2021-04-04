@@ -1,15 +1,14 @@
 ---
 layout: post
-title: "2021 테스트 데이터"
-subtitle: "2021 테스트 데이터"
+title: "주식과 코인"
+subtitle: "투자"
 categories: favorites
 tags: favorites
 comments: true
 ---
 
-## 개요
+## 투자와 투기는 다르다
 
-> `투자와 투기는 다르다.`
 > 계속 공부하고 경험을 쌓아서 부자가 되자!
 
 - 목차

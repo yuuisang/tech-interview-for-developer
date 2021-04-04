@@ -5,6 +5,7 @@ subtitle: "1차원 배열"
 categories: dev
 tags: algorithm
 comments: true
+header-img: img/dev/algorithm/algorithm.png
 ---
 
 ## 알고리즘 공부
@@ -65,6 +66,52 @@ public class Q_10818 {
 ## 2562
 
 ---
+
+![ALTER TEXT](/assets/img/dev/algorithm/2021-04-04-dev-algorithm-3.png)
+
+<br/>
+
+> for문 돌려서 9번 입력받고 입력받은 배열중 0번 인덱스 max 에 담아두고
+> for문 돌려서 찾으면 끝!
+
+<br/>
+
+```jsx
+package baekjoon.ex_array;
+
+import java.util.Scanner;
+
+public class Q_2562 {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+
+		int[] arr = new int[9];
+		for (int i = 0; i < 9; i++) {
+			arr[i] = sc.nextInt();
+		}
+
+		int max = arr[0];
+		int maxIdx = 0;
+		for (int i = 0; i < 9; i++) {
+			if (max < arr[i]) {
+				max = arr[i];
+				maxIdx = i;
+			}
+		}
+		maxIdx++;
+
+		System.out.println(max);
+		System.out.println(maxIdx);
+
+		sc.close();
+	}
+
+}
+
+```
 
 <br/><br/>
 

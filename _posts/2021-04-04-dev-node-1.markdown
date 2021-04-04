@@ -1,0 +1,258 @@
+---
+layout: post
+title: "Node.js / SQL-Server 서버 구성 및 DB 연결"
+subtitle: "백엔드"
+categories: dev
+tags: node
+comments: true
+# header-img: img/dev/algorithm/algorithm.png
+---
+
+### 디렉토리 구조
+
+> 우선 연습으로 클라이언트 단에서 axios로 get 요청을 보냈을 때 해당 URL에 맞는 DB 값을 SELECT 해서 반환해주는 서버를 간단하게 구성해 보았다.
+
+<br/>
+
+![ALTER TEXT](/assets/img/dev/node/2021-04-04-dev-node-1-01.png)
+
+<br/>
+
+```jsx
+//package.json
+{
+  "name": "reactreduxserver",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.6.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "insomnia": "^0.0.1",
+    "mssql": "^6.3.1",
+    "nodemon": "^2.0.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.2",
+    "web-vitals": "^1.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1 ",
+    "start": "node --max-old-space-size=4096 main.js",
+    "dev": "nodemon --max-old-space-size=4096 main.js",
+    "build": "react-scripts build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "bin": {
+    "app": "./main.js"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
+```
+
+```jsx
+// main.jsconst express = require("express");
+const path = require("path");
+let bodyParser = require("body-parser");
+let api = require("./routes");
+let port = process.env.PORT || 3001;
+let app = express();
+// app.use(bodyParser.urlencoded({ extended: true }));// app.use(bodyParser.json());
+app.use("/api", api);
+
+// No need to connect the pool// Just start the web server//RUN SERVERlet server = app.listen(port, () => {
+  console.log("3001 번 포트 가동중");
+// const host = server.address().host;// const port = server.address().port;// console.log(`Listening at http://${host}:${port}`);
+});
+```
+
+<br/>
+
+```jsx
+// db.jslet sql = require("mssql");
+let config = require("./config/config.json");
+
+// 환경변수 - 특정 process를 위한 key-value 형태의 변수let env = process.env.NODE_ENV || "development";
+
+let pool = null;
+let db = () => {
+  if (!pool) pool = new sql.ConnectionPool(config[env].dbConn).connect();
+  return pool;
+};
+
+module.exports = db;
+```
+
+<br/>
+
+```jsx
+// config/config.json
+
+{
+  "development": {
+    "dbConn": {
+      "user": "sa",
+      "password": "A!12345",
+      "database": "SES2021_DEV",
+      "server": "localhost",
+      "port": 1433,
+      "pool": {
+        "max": 35,
+        "min": 5
+      },
+      "options": {
+        "encrypt": true,
+        "enableArithAbort": true
+      },
+      "parseJSON": false
+    }
+  },
+  "production": {
+    "dbConn": {
+      "user": "sa",
+      "password": "A!12345",
+      "database": "SES2021_DEV",
+      "server": "localhost",
+      "port": 1433,
+      "pool": {
+        "max": 35,
+        "min": 5
+      },
+      "options": {
+        "encrypt": true,
+        "enableArithAbort": true
+      },
+      "parseJSON": false
+    }
+  }
+}
+```
+
+<br/>
+
+```jsx
+// routes/index.jsconst express = require("express");
+const usr = require("./usr"); // 유저const mgr = require("./mgr");// 관리자const router = express.Router();// 분기
+
+router.use("/usr", usr);
+router.use("/mgr", mgr);
+
+module.exports = router;
+```
+
+<br/>
+
+```jsx
+// routes/usr/index.jsconst express = require("express");
+const { restart } = require("nodemon");
+const router = express.Router();
+const db = require("../../db");
+const bodyParser = require("body-parser");
+const { TYPES } = require("mssql");
+
+/*
+  req.body : POST 정보를 가집니다. 파싱을 위해서 body-parser와 같은 패키지가 필요합니다.
+            요청 정보가 url에 들어있는 것이 아니라 Request의 본문에 들어있기 때문입니다.
+  req.query : GET 정보를 가집니다. 즉, url로 전송된 쿼리 스트링 파라미터를 담고 있습니다.
+  req.params : 내가 이름 붙인 라우트 파라미터 정보를 가집니다.
+  req.headers : HTTP의 Header 정보를 가집니다.
+
+  이 외에도 req.route, req.cookies, req.acceptedLanguages,
+  req.url, req.protocol, req.host, req.ip 등이 있음.
+
+  ---------------------------------------------------------------------------------
+
+  res.send : 다양한 유형의 응답을 전송합니다.
+  res.redirect : 브라우저를 리다이렉트 합니다.
+  res.render : 설정된 템플릿 엔진을 사용해서 views를 렌더링합니다.
+  res.json : JSON 응답을 전송합니다.
+  res.end : 응답 프로세스를 종료합니다.
+
+  이 외에도 res.set, res.status, res.type, res.sendFile,
+  res.links, res.cookie 등이 있음.
+*/
+router.use(bodyParser.urlencoded({ extended: false }));
+
+// READ
+router.get("/selectUser", async (req, res) => {
+  let pool = null;
+  try {
+    pool = await db(); // await 는 비동기인 js에서 promise 값이 사용가능해질때까지 실행을 중지시킴let result = await pool.request().query("SELECT * FROM USR WHERE USR_TYPE = 2");
+    // recordset : 쿼리결과
+    res.json(result.recordset); // json 타입으로 파싱해서 send()
+  } catch (err) {
+    console.log(err);
+    res.status(500);
+    res.send(err.message);
+  }
+});
+
+module.exports = router;
+```
+
+<br/>
+
+```jsx
+// routes/mgr/index.jsconst express = require("express");
+const { restart } = require("nodemon");
+const router = express.Router();
+const db = require("../../db");
+const bodyParser = require("body-parser");
+const { TYPES } = require("mssql");
+
+router.use(bodyParser.urlencoded({ extended: false }));
+
+// READ
+router.get("/selectAdmin", async (req, res) => {
+  let pool = null;
+  try {
+    pool = await db(); // await 는 비동기인 js에서 promise 값이 사용가능해질때까지 실행을 중지시킴let result = await pool.request().query("SELECT * FROM USR WHERE USR_TYPE = 0");
+    // recordset : 쿼리결과
+    res.json(result.recordset); // json 타입으로 파싱해서 send()
+  } catch (err) {
+    console.log(err);
+    res.status(500);
+    res.send(err.message);
+  }
+});
+
+module.exports = router;
+```
+
+<br/>
+
+### DB구성
+
+> 사진은 MS-SQL 이지만, 다른 DB 여도 크게 다르지 않음
+
+![ALTER TEXT](/assets/img/dev/node/2021-04-04-dev-node-1-02.png)
+
+<br/>
+
+### API 체크
+
+> 일반 유저
+
+![ALTER TEXT](/assets/img/dev/node/2021-04-04-dev-node-1-03.png)
+
+> 관리자
+
+![ALTER TEXT](/assets/img/dev/node/2021-04-04-dev-node-1-04.png)

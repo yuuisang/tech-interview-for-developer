@@ -1,0 +1,67 @@
+---
+layout: post
+title: "Redux 상태 관리 라이브러리 "
+subtitle: "프론트엔드"
+categories: dev
+tags: react
+comments: true
+header-img: img/dev/react/2021-04-04-dev-react-1-01.jpg
+---
+
+### 순수 React 와의 차이
+
+> React 는 React 컴포넌트가 자체적으로 개별 상태관리를 하는 시스템이고, React+Redux 는 상태관리를 하는 전용 장소(store)에서 상태를 관리하고 React 컴포넌트는 그걸 화면에 랜더링해주는 용도로 쓰인다.
+
+<br/>
+
+### Ducks 패턴
+
+> Redux 의 기본 상태관리 방식은 `actiontype`, `action creator`, `reducer` 등을 동일 파일이 아닌 각각 다른 파일에서 관리하는 방식이다.
+> 그러나 실제로 페이지가 많아지고, 하나를 추가하거나 수정하려고 할 때 마다 각각의 파일을 따로 작성 혹은 수정 해야하는 번거로움이 있다. 이러한 문제점을 개선하려고 나온 것이 `Ducks 패턴`이다.
+
+- Ducks 패턴은 기본적으로 3가지 원칙을 가지고 있다.
+  - Reducer는 export default 로 내보낸다.
+  - action 함수는 export 로 내보낸다.
+  - action type을 정의할 때, reducer/ACTION_TYPE 의 형태로 정의해야 한다. 이유는 서로 다른 리듀서에서 액션 이름이 중복되는 문제를 방지하기 위함이다.
+
+<br/>
+
+```jsx
+// widgets.js*
+
+// Actions*
+
+const LOAD   = 'widgets/LOAD';
+const CREATE = 'widgets/CREATE';
+const UPDATE = 'widgets/UPDATE';
+const REMOVE = 'widgets/REMOVE';
+
+// Reducer*
+
+export default function reducer(state = {}, action = {}) {
+  switch (action.type) {
+
+// do reducer stuff*
+
+default: return state;
+  }
+}
+
+*// Action 생성자*
+
+export function loadWidgets() {
+  return { type: LOAD };
+}
+
+export function createWidget(widget) {
+  return { type: CREATE, widget };
+}
+
+export function updateWidget(widget) {
+  return { type: UPDATE, widget };
+}
+
+export function removeWidget(widget) {
+  return { type: REMOVE, widget };
+}
+```
