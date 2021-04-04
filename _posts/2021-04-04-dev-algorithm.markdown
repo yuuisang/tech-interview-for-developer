@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2021 테스트 데이터"
+title: "백준 1차원 배열"
 subtitle: "1차원 배열"
 categories: dev
 tags: algorithm

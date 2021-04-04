@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: 자격증
+title: SQLD
 slug: certificate
-category: dev
+category: certificate
 menu: false
 order: 1
 ---
