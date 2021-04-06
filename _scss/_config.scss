@@ -14,8 +14,11 @@ $default: #505050;
 $white: #fff;
 $lightgrey: #eee;
 $black: #000;
+$cool: #3B547C;
 
-$theme-color: $default;
+// $theme-color: $default;
+// $theme-color-dark: darken($theme-color, 10%);
+$theme-color: $cool;
 $theme-color-dark: darken($theme-color, 10%);
 
 $post-date-color: #9a9a9a;

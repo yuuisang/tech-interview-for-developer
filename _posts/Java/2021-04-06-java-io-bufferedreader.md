@@ -1,13 +1,14 @@
 ---
 layout: post
-title:  "Java 입출력, BufferedReader, StringTokenizer"
-date : 2018-04-06 12:46:32 +0900
-description: 입출력문제는 기본적이라 생각하고 대충넘어가려 했었나보다;;.. 알고리즘에서는 처리속도를 줄이는게 중요한데 이번기회에 확실히 알고 넘어가자.
+title: "Java I/O"
+date: 2021-04-06 00:19:32 +0900
+description:
 categories: Java
 tags: Java BufferedReader StringTokenizer
 ---
 
-# 자바의 입력 Class 
+# 자바의 입력 Class
+
 - **Scanner**, **BufferedReader**, **StringTokenizer**
 - BufferedReader, StringTokenizer 는 문자열로 활용하기 위하여 사용. BufferedReader를 사용하는 것이 Scanner를 사용하는 것보다 빠르다.
 - BufferedReader는 문자열에 최적화 되어 있음.
@@ -26,6 +27,7 @@ String s = sc.nextLine(); // String
 {% endhighlight %}
 
 ## BufferedReader를 사용할때
+
 - 아래와 같이 한줄로 입력시, sc.nextInt()를 12번 호출하는건 비효율적이다. 입력갯수가 큰 알고리즘 문제의 경우 시간제한에 걸리게 된다.
 
 {% highlight js %}
@@ -54,6 +56,7 @@ String[] s = br.readLine().split(" ");
 {% endhighlight %}
 
 ## StringTokenizer 사용목적
+
 - BufferedReader는 잘라서 배열과 같이 인덱스를 사용하여 접근하여 사용.
 - StringTokenizer는 공백이 있다면 뒤에 문자열이 공백 자리를 땡겨 채우도록 한다.
 - StringTokenizer가 BufferedReader보다 빠르게 사용될 수 있다.
@@ -73,34 +76,35 @@ st.nextToken() // GH
 {% endhighlight %}
 
 ## StringTokenizer 사용법
+
 - 자바에서는 String을 token단위로 끊어주는 StringTokenizer 클래스를 제공한다.
 - 예를들어 "this is my string" 이라는 스트링을 this, is, my, string 4개의 스트링으로 끊어주는 기능을 제공한다.
 - 그리고 공백말고도 다른 구획문자(delimiter)를 사용할수도 있다. 예를들어 this%is%my%string을 delimiter에 %를 넣어 StringTokenizer를 사용하면 마찬가지로 this, is, my, string으로 읽어준다.
 - this$%^is$my%string^일때 구획문자를 "$%^"라고 설정해주면 this, is, my, string 으로 끊어준다.
 
 {% highlight js %}
-    String str = "this%%is%%my%%string"; 
-    StringTokenizer st = new StringTokenizer(str,"%%"); 
+String str = "this%%is%%my%%string";
+StringTokenizer st = new StringTokenizer(str,"%%");
 
-    while(st.hasMoreTokens()) { 
-        System.out.println(st.nextToken()); 
+    while(st.hasMoreTokens()) {
+        System.out.println(st.nextToken());
     }
+
 {% endhighlight %}
 
-
-
 ## 같은 문제를 풀었을 때, Scanner와 BufferedReader를 사용했을 때의 처리속도차이
+
 - BufferedReader를 사용했을시, 92MS로 처리속도 단축.
- ![이미지](/post_assets/2018-04-08/algoInput.jpg)
+  ![이미지](/post_assets/2018-04-08/algoInput.jpg)
 
 - 알고리즘 문제를 풀때, 입력이 몇개인지 주어지지 않는 경우 입력을 EOF(End Of File)까지 처리한다. eof를 사용함으로서 데이터가 없음을 알려줄 수 있다.
 - java에서는 `while(sc.hasNextInt())`를 사용함으로서 EOF 까지 입력을 받을 수 있음.(입력이 끝날때까지)
 - ^ : 뺀다는것
 - java `readline, nextLine(한줄바로 입력받음)`
 
-
 #### 출처
-- [http://mygumi.tistory.com/78] 
+
+- [http://mygumi.tistory.com/78]
 - [J. deo의 그알정보](http://arer.tistory.com/48)
 - [Scanner 와 BufferedReader 의 속도 및 메모리 차이](https://m.blog.naver.com/PostView.nhn?blogId=mycho&logNo=220845741136&categoryNo=0&proxyReferer=&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F)
 - [[JAVA] 문자 Stream : BufferedReader / BufferedWriter (파일 복사 예제)](http://hyeonstorage.tistory.com/249)
