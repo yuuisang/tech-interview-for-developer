@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Rest API-HTTP 응답 상태 코드"
-date: 2018-02-01 12:46:32 +0900
-categories: 웹서비스
+date: 2021-04-06 23:24:32 +0900
+categories: Web
 tags: REST-API HTTP
 ---
 
