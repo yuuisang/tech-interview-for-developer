@@ -15,18 +15,18 @@
 <!-- =============== -->
 <div id="_yPushState">
   <div class="fade-in">
-    <main id="_main" class="content" role="main" data-color="{{ color | escape }}" data-image="{{ image | escape }}">
+    <main
+      id="_main"
+      class="content"
+      role="main"
+      data-color="{{ color | escape }}"
+      data-image="{{ image | escape }}"
+    >
       {{ content }}
 
       <br /><br /><br />
-      {% if site.disqus_shortname and page.layout == 'post' %}
-      <!-- {% include comments.html %} -->
-      <h2>Comments</h2>
-      <hr />
-      {% if page.comments %} <div id="post-disqus" class="container"> {% include disqus.html %} </div> {% endif %}
-      {% endif %}
-
-      {% include footer.html %}
+      {% if site.disqus_shortname and page.layout == 'post' %} {% include
+      comments.html %} {% endif %} {% include footer.html %}
     </main>
     {% include right-side.html %}
   </div>
