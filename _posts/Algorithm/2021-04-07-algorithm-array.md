@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[백준] Array"
+title: "[백준] 1차원배열 (계속 업로드 예정)"
 date: 2021-04-07 00:19:32 +0900
 description:
 categories: Algorithm
@@ -198,7 +198,17 @@ public class Q_2577 {
 
 ---
 
-나머지
+![ALTER TEXT](/public/img/algorithm/array/2021-04-07-algorithm-array-4.png)
+
+<br/>
+
+> 풀이작성전
+
+<br/>
+
+```jsx
+
+```
 
 <br/><br/>
 
