@@ -46,7 +46,7 @@ google_fonts: Lato
 # To remove Google Anaylics from your page, remove the line below.
 google_analytics: UA-137374202-1
 
-# Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
+# Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter this
 disqus: true
 disqus_shortname: "manong-blog"
 
