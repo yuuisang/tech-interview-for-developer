@@ -4,7 +4,7 @@ title: "Spring-Security"
 date: 2021-04-07 00:17:32 +0900
 description:
 categories: Spring
-tags: Java spring-security
+tags: [Java, spring-security]
 ---
 
 ## 보안이란?

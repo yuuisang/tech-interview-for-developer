@@ -3,7 +3,7 @@ layout: post
 title: "Rest API란?"
 date: 2021-04-06 23:24:32 +0900
 categories: Web
-tags: Node REST-API URI
+tags: [Node, RESTAPI, URI]
 ---
 
 # Rest API란?

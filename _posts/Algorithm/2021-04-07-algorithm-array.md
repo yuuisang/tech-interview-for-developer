@@ -4,7 +4,7 @@ title: "[백준] 1차원배열 (계속 업로드 예정)"
 date: 2021-04-07 00:19:32 +0900
 description:
 categories: Algorithm
-tags: Algorithm BaekJoon
+tags: [Algorithm, BaekJoon]
 ---
 
 ![ALTER TEXT](/public/img/algorithm/2021-04-07-algorithm-1.png)

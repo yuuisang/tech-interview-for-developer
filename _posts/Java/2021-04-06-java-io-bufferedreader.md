@@ -4,7 +4,7 @@ title: "Java I/O"
 date: 2021-04-06 00:19:32 +0900
 description:
 categories: Java
-tags: Java BufferedReader StringTokenizer
+tags: [Java, BufferedReader, StringTokenizer]
 ---
 
 # 자바의 입력 Class

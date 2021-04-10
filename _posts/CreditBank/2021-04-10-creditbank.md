@@ -4,7 +4,7 @@ title: "학점은행제 시작"
 date: 2021-04-10 17:47:32 +0900
 description:
 categories: CreditBank
-tags: CreditBank Degree
+tags: [CreditBank, Degree]
 ---
 
 ## 학점은행제란

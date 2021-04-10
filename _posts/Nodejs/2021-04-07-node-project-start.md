@@ -4,7 +4,7 @@ title: "Node Express 프로젝트 시작하기"
 date: 2021-04-07 00:15:32 +0900
 description:
 categories: Nodejs
-tags: Node Express
+tags: [Node, Express]
 ---
 
 ## Express 설치하기
