@@ -202,11 +202,52 @@ public class Q_2577 {
 
 <br/>
 
-> 풀이작성전
+> Set 에 담았다가 .size() 뽑으면 10초만에 해결되는 문제지만 그래도 알고리즘 문제니까 번거롭게 풀어봤다.
 
 <br/>
 
 ```jsx
+package baekjoon.ex_array;
+
+import java.util.Scanner;
+
+public class Q_3052 {
+
+	public static void main(String[] args) throws Exception {
+
+		Scanner sc = new Scanner(System.in);
+		int result = 0;
+
+		int[] arr = new int[10];
+		for (int i = 0; i < 10; i++) {
+			arr[i] = sc.nextInt();
+		}
+
+		int chkArr[] = new int[10];
+
+		for (int i = 0; i < chkArr.length; i++) {
+			chkArr[i] = arr[i] % 42;
+		}
+
+		boolean chk;
+		for (int i = 0; i < 10; i++) {
+			chk = true;
+			for (int j = i + 1; j < 10; j++) {
+				if (chkArr[i] == chkArr[j]) {
+					chk = false;
+					break;
+				}
+			}
+			if (chk) {
+				result++;
+			}
+		}
+
+		System.out.println(result);
+		sc.close();
+	}
+
+}
 
 ```
 
