@@ -37,6 +37,16 @@ tags: [CreditBank, Degree]
 
 <br><br>
 
+## 실제 수강 과목
+
+---
+
+<center>
+<img src="/post_assets/2021-04-10/egreen.png" >
+</center>
+
+<br><br>
+
 ## 학점인정 신청
 
 ---
