@@ -42,7 +42,7 @@ tags: [CreditBank, Degree]
 ---
 
 <center>
-<img src="/post_assets/2021-04-10/egreen.PNG" >
+<img src="/post_assets/2021-04-10/egreen.png" >
 </center>
 
 <br><br>
