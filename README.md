@@ -3,22 +3,7 @@
 
 <br>
 
-**Since** : 2019.03.01 
-
-**Collaborator** : [kim6394](https://github.com/kim6394), [Ricky](<https://github.com/GimunLee>), [b2narae](<https://github.com/b2narae>)
-
-**Commit convention rule** : 날짜-[주제]-내용-상태
-
-`ex) 2019-10-14 [Algorithm] Sort Add/Update/Delete`
-
-잘못된 내용은 이슈로 알려주세요 💡
-
-**도움을 주신 분들**🙏 : [ykk2006](<https://github.com/ykk2006>), [ksundong](<https://github.com/ksundong>), [qwer9412](<https://github.com/qwer9412>), [HeechanYang](<https://github.com/HeechanYang>), [JungWinter](https://github.com/JungWinter), [inspire12](<https://github.com/inspire12>),
- [5d-jh](https://github.com/5d-jh),[tmdgus0084](https://github.com/tmdgus0084)
-
-<br>
-
-#### 👨🏻‍🏫 [기술 면접 감 잡기](<https://github.com/kim6394/tech-interview-for-developer/tree/master/Interview#%EA%B8%B0%EC%88%A0-%EB%A9%B4%EC%A0%91-%EC%A4%80%EB%B9%84%ED%95%98%EA%B8%B0>) 👩🏻‍🏫
+#### 👨🏻‍🏫 [참조](<https://github.com/kim6394/tech-interview-for-developer/tree/master/Interview#%EA%B8%B0%EC%88%A0-%EB%A9%B4%EC%A0%91-%EC%A4%80%EB%B9%84%ED%95%98%EA%B8%B0>) 👩🏻‍🏫
 
 ------
 
