@@ -14,7 +14,8 @@ $default: #505050;
 $white: #fff;
 $lightgrey: #eee;
 $black: #000;
-$cool: #3B547C;
+// $cool: #3B547C; // 진한 곤색
+$cool: #8599bb; // 연한 곤색
 
 // $theme-color: $default;
 // $theme-color-dark: darken($theme-color, 10%);
@@ -23,7 +24,7 @@ $theme-color-dark: darken($theme-color, 10%);
 
 $post-date-color: #9a9a9a;
 $title-color: #313131;
-$masthead-title-small-color: #FFFFFF;
+$masthead-title-small-color: #ffffff;
 
 /* Layout */
 $reverse-layout: false;
@@ -31,17 +32,8 @@ $overlay-sidebar: false;
 
 /* Font stack */
 /* $font-serif: "PT Serif", Georgia, "Times New Roman"; */
-$font-serif: "Apple SD Gothic Neo",
-"KoPubDotum",
-"KoPubDotum Light",
-"NanumBarunGothic",
-"NanumBarunGothicOTF",
-"Malgun Gothic",
-"NanumGothic",
-"NanumGothicOTF",
-sans-serif;
-$font-sans: "PT Sans",
-Helvetica,
-Arial,
-sans-serif;
+$font-serif: "Apple SD Gothic Neo", "KoPubDotum", "KoPubDotum Light",
+  "NanumBarunGothic", "NanumBarunGothicOTF", "Malgun Gothic", "NanumGothic",
+  "NanumGothicOTF", sans-serif;
+$font-sans: "PT Sans", Helvetica, Arial, sans-serif;
 $font-font-awesome: FontAwesome;
